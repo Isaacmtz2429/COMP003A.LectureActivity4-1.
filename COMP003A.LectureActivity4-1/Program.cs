@@ -10,8 +10,6 @@ namespace COMP003A.LectureActivity4_1_
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter grade for student 1 (0-100): ");
-
             // Declare an array to store 5 grades
             int[] grades = new int[5];
 
@@ -38,25 +36,42 @@ namespace COMP003A.LectureActivity4_1_
                         Console.WriteLine("Invalid input. Please enter a valid number.");
                         grade = -1; // Reset grade to an invalid value to re-enter the loop
                     }
-                    // Calculate the average grade
-                    double sum = 0;
-                    for (int i = 0; i < grades.Length;i++)
-                    {
-                        sum += grades[i]; // Add the currect grade to the total sum for avergaing
-                    }
-                    double average = sum / grades.Length;
-
-                    // Display the grade and average
-                    Console.WriteLine("\nGrades: ");
-                    foreach (int grade  in grades)
-                    {
-                        Console.WriteLine(grade); // Display each grade stored in the array
-                    }
-                    Console.WriteLine($"Average Grade: {average: F2}");
                 }
+
+            }
+            // Calculate the average grade
+            double sum = 0;
+            for (int i = 0;i < grades.Length;i++)
+            {
+                sum += grades[i]; // Add the current grade to the total sum for averaging
+            }
+            double average = sum / grades.Length;
+
+            // Display the grades and average
+            Console.WriteLine("\nGrades:");
+            foreach (int grade in grades)
+            {
+                Console.WriteLine(grade); // display each grade store in the array
+            }
+            Console.WriteLine($"Average Grade: {average:F2}");
+
+            // Declare a list to store student names
+            List<string> studentNames = new List<string>();
+
+            // Collect student names
+            for (int i = 0; i < 5; i++)
+            {
+                Console.Write($"Enter names for student {i + 1}: ");
+                studentNames.Add( Console.ReadLine() ); // Add the entered name to the list of student names
+            }
+
+            // Display student names
+            Console.WriteLine("\nStudent Names");
+            for (int i = 0; i < studentNames.Count;i++)
+            {
+                Console.WriteLine($"Student {i + 1}: {studentNames[i]}"); // Display each student name with their index
             }
         }
-
         
         
     }
